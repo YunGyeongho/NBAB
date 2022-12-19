@@ -1,0 +1,92 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table id="editor-menu">
+		<tr>
+			<td align="center">
+				<button id="btn-image">
+					<img src="resources/img/images.png" id="images-img">
+				</button>
+				<input id="imgSelector" type="file" accept="image/*"/>
+			</td>
+			<td align="center">
+				<button id="btn-bold">
+					<b>B</b>
+				</button>
+			</td>
+			<td align="center">
+				<button id="btn-italic">
+					<i>i</i>
+				</button>
+			</td>
+			<td align="center">
+				<button id="btn-underline">
+					<u>U</u>
+				</button>
+			</td>
+			<td align="center">
+				<button id="btn-strike">
+					<s>S</s>
+				</button>
+			</td>
+			<td align="center">
+				<button id="btn-ordered-list">
+					OL
+				</button>
+			</td>
+			<td align="center">
+				<button id="btn-unordered-list">
+					UL
+				</button>
+			</td>
+			<td align="center">
+				<button id="btn-align-left">
+					<img src="resources/img/font_left.png" id="btn-align-left-img">
+				</button>
+			</td>
+			<td align="center">
+				<button id="btn-align-center">
+					<img src="resources/img/font_center.png" id="btn-align-center-img">
+				</button>
+			</td>
+			<td align="center">
+				<button id="btn-align-right">
+					<img src="resources/img/font_right.png" id="btn-align-right-img">
+				</button>
+			</td>
+			<td>
+				<select id="select-fontSize">
+					<option value="1">10px</option>
+					<option value="2">13px</option>
+					<option value="3">16px</option>
+					<option value="4">18px</option>
+					<option value="5">24px</option>
+					<option value="6">32px</option>
+					<option value="7">48px</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<div>
+		<input id="b_title" placeholder="제목 최대 20자" maxlength="20">
+	</div>
+	<div contenteditable="true" id="boardEditor">
+
+	</div>
+	<div id="boardSubmitDiv">
+		<button id="boardWriteButton">작성 완료</button>
+	</div>
+	<div style="display: none;">
+		<input id="m_id" value="${sessionScope.loginStatus.m_id }" type="hidden">
+		<input id="m_username" value="${sessionScope.loginStatus.m_username }" type="hidden">
+	</div>
+</body>
+<script type="text/javascript" src="resources/js/boardEditor.js"></script>
+<script type="text/javascript" src="resources/js/boardWrite.js"></script>
+</html>

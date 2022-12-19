@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haheeho.adblock.board.BoardMapper">
+	<insert id="boardWrite" parameterType="com.haheeho.adblock.board.Board">
+		insert into adblock_board2 values(adblock_board_seq2.nextval, #{b_m_id}, #{b_m_username}, #{b_title}, sysdate)
+	</insert>
+	<select id="getSequence" parameterType="com.haheeho.adblock.board.Board" resultType="com.haheeho.adblock.board.BoardSequence">
+		select b_number from adblock_board2 where b_date = (select max(b_date) from adblock_board2 where b_m_id = #{b_m_id}) 
+	</select>
+	<select id="setBoardCount" resultType="java.lang.Integer" parameterType="com.haheeho.adblock.board.BoardSearchOption">
+		select count(*) from adblock_board2 where b_title like '%'||#{search}||'%'
+	</select>
+	<select id="setBoardCountByUsername" resultType="java.lang.Integer" parameterType="com.haheeho.adblock.board.BoardSearchOption">
+		select count(*) from adblock_board2 where b_username like '%'||#{search}||'%'
+	</select>
+	<select id="getBoards" resultType="com.haheeho.adblock.board.Board" parameterType="com.haheeho.adblock.board.BoardSearchOption">
+		select * from (select rownum as rn, b_number, b_m_id, b_m_username, b_title, b_date from (select rownum, b_number, b_m_id, b_m_username, b_title, b_date from adblock_board2 where b_title like '%'||#{search}||'%' order by b_number desc)) where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	<select id="getBoardsByUsername" resultType="com.haheeho.adblock.board.Board" parameterType="com.haheeho.adblock.board.BoardSearchOption">
+		select * from (select rownum as rn, b_number, b_m_id, b_m_username, b_title, b_date from (select rownum, b_number, b_m_id, b_m_username, b_title, b_date from adblock_board2 where b_m_username like '%'||#{search}||'%' order by b_number desc)) where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	<select id="getContent" resultType="com.haheeho.adblock.board.Board" parameterType="BoardSequence">
+		select * from adblock_board2 where b_number = #{b_number}
+	</select>
+	<update id="modifyContent" parameterType="com.haheeho.adblock.board.Board">
+		update adblock_board2 set b_title = #{b_title} where b_number = #{b_number}
+	</update>
+	<delete id="deleteContent" parameterType="com.haheeho.adblock.board.BoardSequence">
+		delete from adblock_board2 where b_number = #{b_number}
+	</delete>
+</mapper>

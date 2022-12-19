@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+@import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+
+@font-face{
+	font-family: "a";
+	src: url("font/Cafe24Dangdanghae.ttf");
+}
+
+@font-face{
+	font-family: "b";
+	src: url("font/MaplestoryLight.ttf");
+}
+
+#haheehoLogoDiv {
+	position: fixed;
+	top:5px;
+	right: 1300px;
+	width: 210px;
+	z-index: 0;
+}
+
+#haheehoLogoDiv img{
+	max-width: 180px;
+}
+
+#backgroundImgDiv{
+	position: fixed;
+	top: 680px;
+	left: 1570px;
+	width: 300px;
+	z-index: 1;
+}
+
+
+#backgroundImg{
+	max-width: 290px;
+}
+
+#backgroundImgDiv2{
+	position: fixed;
+	top: 200px;
+	right: 1615px;
+	width: 250px;
+	z-index: 1;
+}
+
+#backgroundImg2{
+	max-width: 240px;
+}
+
+#backgroundColor{
+	z-index: -1;
+	height: 1080px;
+	width: 1960px;
+	border-spacing: 0;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}
+
+#bgcTop{
+	height: 60%;
+	width: 100%;
+	background-color: #FFE164;
+}
+
+#bgcBottom{
+	height: 40%;
+	width: 100%;
+	background-color: #EFEFEB;
+}
+
+a{
+	text-decoration: none;
+}
+
+input{
+	font-family: "b";
+	font-size: 19px;
+}
+
+#mainSearchArea {
+	margin-top: 50px;
+}
+
+
+.mainPageTable{
+	margin-left: auto;
+	margin-right: auto;
+	width: 1200px;
+	border-spacing: 0;
+}
+
+
+#mainTitleTd a{
+	font-size: 50px;
+	font-family: 'Galmuri7';
+	font-weight: 50px;
+	color: #1E3745;
+}
+
+#mainTitleTd a:hover{
+	color: #1E374580;
+}
+
+#mainTable {
+	background-color: #FAFAF5;
+	height: 770px;
+	border-top: 3px solid #757575;
+	border-bottom: 3px solid #757575;
+	border-spacing: 0;
+	z-index: 3;
+	position: relative;
+}
+
+#menuTable{
+	margin-top: 13px;
+	width:88%;
+	border: 2px solid #EF5E5A;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-spacing: 0;
+	background-color: #EF5E5A;
+}
+
+#menuTable a{
+	font-family: "a";
+	color: #FFE164;
+}
+
+#menuTable a:hover{
+	color: #FFE16480;
+}
+
+#mainPostTd {
+	box-shadow: inset 0 0 10px #BDBDBD;
+	padding: 10px;
+}
+
+#homeTabTd{
+	width: 50%;
+	height: 30px;
+}

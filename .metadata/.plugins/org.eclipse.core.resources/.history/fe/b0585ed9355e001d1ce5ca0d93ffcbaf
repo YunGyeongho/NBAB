@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haheeho.adblock.board.BoardMapper">
+	<insert id="boardWrite" parameterType="com.haheeho.adblock.board.Board">
+		insert into adblock_board values(adblock_board_seq.nextval, #{b_m_id}, #{b_m_username}, #{b_title}, sysdate)
+	</insert>
+	<select id="getSequence" parameterType="com.haheeho.adblock.board.Board" resultType="com.haheeho.adblock.board.BoardSequence">
+		select b_number from adblock_board where b_date = (select max(b_date) from adblock_board where b_m_id = #{b_m_id}) 
+	</select>
+</mapper>

@@ -1,0 +1,15 @@
+package com.haheeho.adblock.board;
+
+import java.util.List;
+
+public interface BoardMapper {
+	
+	public abstract int boardWrite(Board b);
+	public abstract BoardSequence getSequence(Board b);
+	public abstract int setBoardCount(BoardSearchOption bso);
+	public abstract List<Board> getBoards(BoardSearchOption bso);
+	public abstract List<Board> getBoardByUsername(BoardSearchOption bso);
+	public abstract Board getContent(BoardSequence bs);
+	public abstract int modifyContent(Board b);
+	public abstract int deleteContent(BoardSequen
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haheeho.adblock.comment.CommentMapper">
+	<insert id="commentSave" parameterType="com.haheeho.adblock.board.Comment">
+		insert into adblock_comment values(adblock_comment_seq.nextval, #{c_b_number}, #{c_b_title}, #{c_m_id}, #{c_m_username}, sysdate, #{c_content})
+	</insert>
+	<select id="commentGet" parameterType="com.haheeho.adblock.board.Comment" resultType="com.haheeho.adblock.board.Comment">
+		select * from adblock_comment where c_b_number = #{c_b_number} order by c_date desc
+	</select>
+	<update id="commentModify" parameterType="com.haheeho.adblock.board.Comment">
+		update adblock_comment set c_content = #{c_content} where c_number = #{c_number}
+	</update>
+	<delete id="commentDelete" parameterType="com.haheeho.adblock.board.Comment">
+		delete from adblock_comment where c_number = #{c_number}
+	</delete>
+	<select id="commentGetByID" parameterType="com.haheeho.adblock.board.Comment" resultType="com.haheeho.adblock.board.Comment">
+		select * from adblock_comment where c_m_id = #{c_m_id} order by c_date desc
+	</select>
+</mapper>

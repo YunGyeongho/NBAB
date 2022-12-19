@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+#boardEditor {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px 24px;
+    border: 1px solid #D6D6D6;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px #BDBDBD;
+    height: 550px;
+    overflow: scroll;
+    
+}
+
+#imgSelector{
+    display: none;
+}
+
+#btn-image, #btn-bold, #btn-italic, #btn-underline, #btn-strike, #btn-ordered-list, #btn-unordered-list, #btn-align-left, #btn-align-center, #btn-align-right{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color: #EEEEEE;
+    border: 1px solid #D6D6D6;
+    border-radius: 4px;
+    color: #212121;
+}
+
+#btn-image:hover, #btn-bold:hover, #btn-italic:hover, #btn-underline:hover, #btn-strike:hover, #btn-ordered-list:hover, #btn-unordered-list:hover, #btn-align-left:hover, #btn-align-center:hover, #btn-align-right:hover{
+	cursor: pointer;
+}
+
+#btn-align-left-img, #btn-align-center-img, #btn-align-right-img, #images-img{
+    max-width: 15px;
+}
+
+#select-fontSize{
+    width: 60px;
+    height: 40px;
+    text-align: center;
+}
+
+#editor-menu{
+	border-top: 2px solid #757575;
+	border-left: 2px solid #757575;
+	border-right: 2px solid #757575;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	box-shadow: 2px 2px #BDBDBD;
+	margin-right: 250px;
+	margin-top: 8px;
+}
+
+#boardSubmitDiv{
+	margin-left: 550px;
+}
+
+#boardWriteButton, #boardModifyButton, #cancelModifyButton{
+	background-color: #EF5E5A;
+	border: none;
+	font-family: "b";
+	font-size: 20px;
+	color: #FFE164;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#boardWriteButton:hover, #boardModifyButton:hover, #cancelModifyButton:hover{
+	cursor: pointer;
+	color: #FFE16480;
+}
+
+#b_title{
+	width: 830px;
+	height: 30px;
+	outline-style: none;
+	border-radius: 4px;
+	border-color: #EFEFEB;
+}
+
+
+/********************* boardContent **********************/
+
+#contentTable{
+	width: 95%;
+	height: 95%;
+	border-spacing: 0;
+}
+
+#contentTd{
+	width: 90%;
+	height: 550px;
+}
+
+#contentTitleTd{
+	font-size: 25px;
+	font-weight: 5px;
+	background-color: #FFE164;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#contentUnTd{
+	border-left: 2px solid #FFE164;
+	border-bottom: 2px solid #FFE164;
+	border-bottom-left-radius: 5px; 
+}
+
+#contentDateTd{
+	border-right: 2px solid #FFE164;
+	border-bottom: 2px solid #FFE164;
+	border-bottom-right-radius: 5px; 
+}
+
+#contentDiv{
+	margin-left: auto;
+    margin-right: auto;
+    padding: 16px 24px;
+    border: 1px solid #D6D6D6;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px #BDBDBD;
+    height: 550px;
+    overflow: scroll;
+}
+
+#contentModifyButton{
+	margin-left: 50px;
+	background-color: #EF5E5A;
+	border: none;
+	font-family: "b";
+	font-size: 20px;
+	color: #FFE164;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#contentModifyButton:hover{
+	cursor: pointer;
+	color: #FFE16480;
+}
+
+#contentDeleteButton{
+	margin-right: 50px;
+	background-color: #EF5E5A;
+	border: none;
+	font-family: "b";
+	font-size: 20px;
+	color: #FFE164;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#contentDeleteButton:hover, #goListButton:hover{
+	cursor: pointer;
+	color: #FFE16480;
+}
+
+#goListButton{
+	margin-left: 550px;
+	margin-top: 10px;
+	background-color: #EF5E5A;
+	border: none;
+	font-family: "b";
+	font-size: 20px;
+	color: #FFE164;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}

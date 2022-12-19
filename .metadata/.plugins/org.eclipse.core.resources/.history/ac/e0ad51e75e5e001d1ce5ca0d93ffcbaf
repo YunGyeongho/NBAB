@@ -1,0 +1,45 @@
+package com.haheeho.adblock.board;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.haheeho.adblock.BoardPerPage;
+
+@Service
+public class BoardDAO {
+	
+	private int boardCount;
+	
+	@Autowired
+	private BoardPerPage bp;
+	
+	@Autowired
+	private SqlSession ss;
+	
+	
+	public void setBoardCount(BoardSearchOption bso) {
+		boardCount = ss.getMapper(BoardMapper.class).setBoardCount(bso);
+		System.out.println(boardCount);
+	}
+	
+	public BoardSequence boardWrite(Board b) {
+		
+		BoardSequence bs = null;
+		try {
+			
+			if (ss.getMapper(BoardMapper.class).boardWrite(b) == 1) {
+				bs = ss.getMapper(BoardMapper.class).getSequence(b);
+			}
+			
+			return bs;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			return bs;
+		}
+	}
+	
+	
+}

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Haheeho_Adblock&apos;" deleteContents="true" description="Delete resource &apos;Haheeho_Adblock&apos;" element1="/Haheeho_Adblock" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1666837267905"/>&#x0A;<refactoring comment="Delete resource &apos;NaverBlogAdBlock_Http&apos;" deleteContents="true" description="Delete resource &apos;NaverBlogAdBlock_Http&apos;" element1="/NaverBlogAdBlock_Http" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1666838358235"/>
+</session>

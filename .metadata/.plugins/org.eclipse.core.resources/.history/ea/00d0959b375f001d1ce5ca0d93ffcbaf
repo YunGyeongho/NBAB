@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haheeho.adblock.member.MemberMapper">
+	<insert id="join" parameterType="com.haheeho.adblock.member.Member">
+		insert into adblock_member values(#{m_id}, #{m_username}, #{m_pw}, #{m_email}, #{m_photo})
+	</insert>
+	<select id="getMemberByID" parameterType="com.haheeho.adblock.member.Member" resultType="com.haheeho.adblock.member.Member">
+		select * from adblock_member where m_id = #{m_id}
+	</select>
+	<select id="getMembersByID" parameterType="com.haheeho.adblock.member.Member" resultType="com.haheeho.adblock.member.Member">
+		select * from adblock_member where m_id = #{m_id}
+	</select>
+</mapper>

@@ -1,0 +1,25 @@
+const writeButton = document.getElementById('boardWriteButton');
+ 
+const submitNodeURL = "http://sdgn-djvemfu.tplinkdns.com:6776/board.submit"
+ 
+function submitBoard() {
+	const b_m_id = document.getElementById('m_id').value;
+	const b_m_username = document.getElementById('m_username').value;
+	const b_title = document.getElementById('b_title').value;
+	const b_content = document.getElementById("boardEditor").innerHTML;
+	alert(b_content);
+	$.ajax({
+			type: "POST",
+			url: "board.write.submit",
+			data: {b_m_id: b_m_id, b_m_username: b_m_username, b_title: b_title},
+			success: (result) => {
+				const b_number = result["b_number"];
+				$.getJSON(`${submitNodeURL}?b_number=${b_number}&b_content=${b_content}`, (end) => {
+				});
+			}
+	});
+	location.href= "board.go";
+} 
+
+
+writeButton.addEventListener('click', () => {submitBoard()});

@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td colspan="2" align="center">
+				${board.b_title }
+			</td>
+		</tr>
+		<tr>
+			<td align="left">
+				${board.b_m_username }
+			</td>
+			<td align="right">
+				<fmt:formatDate value="${board.b_date }" pattern="yyyy년  MM월  dd일"/>
+			</td>
+		</tr>
+		<tr>
+			<td id="boardContentTd" colspan="2" align="center">
+					
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

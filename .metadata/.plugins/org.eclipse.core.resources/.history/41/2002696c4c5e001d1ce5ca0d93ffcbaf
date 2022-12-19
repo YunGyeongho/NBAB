@@ -1,0 +1,56 @@
+let memoFinish = true;
+const memoSaveURL = "http://sdgn-djvemfu.tplinkdns.com:6776/memo.save"
+
+function clickMemoButton(memoIndex) {
+	const memberID = document.getElementById("loginID").innerText;
+	
+	if(memberID == ""){
+		alert("로그인 안함 또는 로그인 시간 만료");
+	}else{
+		$("#memoButton" + memoIndex).attr({"onclick":
+			"clickMemoSaveButton(" + memoIndex + ")"});
+		$("#memoButton" + memoIndex).attr({"src":"resources/img/openMemo.png"});
+		$("#memo" + memoIndex).removeAttr("style");
+		
+	}
+}
+
+function clickMemoSaveButton(memoIndex) {
+	const memberID = document.getElementById("loginID").innerText;
+	
+	if(memberID == ""){
+		alert("로그인 안함 또는 로그인 시간 만료");
+	}else if(memoFinish){
+		memoFinish = false;
+		
+		let memo = document.getElementById("memo" + memoIndex);
+		let memoContent = memo.value; 
+		alert(memoContent);
+		if (memoContent == "") {
+			memoFinish = true;
+			$("#memoButton" + memoIndex).attr({"onclick":
+				"clickMemoButton(" + memoIndex + ")"});
+			$("#memo" + memoIndex).attr({"style":"display :none;"});
+			$("#memoButton" + memoIndex).attr({"src":"resources/img/closeMemo.png"});
+		}else{
+			
+			const url = document.getElementById("postBlogName" + memoIndex);
+			const label = document.getElementById("postLabel" + memoIndex).innerHTML;
+			
+			const query = "?memberID=" + memberID + "&url=" + url + 
+				"&memo=" + memoContent + "&label=" + label + "&title=" + url.text; 
+			
+			$.getJSON(memoSaveURL + query, (end) => {
+				memoFinish = true;
+				$("#memoButton" + memoIndex).attr({"onclick":
+					"clickMemoButton(" + memoIndex + ")"});
+				$("#memo" + memoIndex).attr({"style":"display :none;"});
+				$("#memoButton" + memoIndex).attr({"src":"resources/img/closeMemoRed.png"});
+			});
+			// 전부 콜백함수
+		}
+	}else{
+		alert("이미 글을 DB저장 중입니다")
+	}
+	
+}

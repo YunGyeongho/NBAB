@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+#mainMemberTd{
+	width:25%;
+	box-shadow: inset 0 0 5px #BDBDBD;
+	padding: 10px;
+}
+
+#loginPageTable{
+	padding: 10px;
+	width: 88%;
+	height: 130px;
+	border-bottom: 2px solid #EF5E5A;
+	border-right: 2px solid #EF5E5A;
+	border-left: 2px solid #EF5E5A;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	font-family: "a";
+	font-weight: 5pt;
+	color: #1E3745;
+}
+
+#loginPageTable a{
+	color: #EF5E5A;
+}
+
+#loginPageTable a:hover{
+	color: #EF5E5A80;
+}
+
+#loginPageTable button{
+	background-color: #EF5E5A;
+	border: none;
+	border-radius: 3px;
+	font-family: "a";
+	font-weight: 5pt;
+	color: #FFE164;
+	height: 20px;
+	margin-top: 5px;
+	margin-right: 9px;
+}
+
+#loginPageTable button:hover{
+	color: #FFE16480;
+	cursor: pointer;
+}
+
+
+.loginInputTable{
+	width: 100%;
+}
+
+#loginID, #loginPW{
+	width: 130px;
+	outline-style: none;
+	border-radius: 4px;
+	border-color: #FAFAF5;
+}
+
+#memberImgTd{
+	width: 90px;
+}
+
+#memberImgTd img{
+	max-width: 80px;
+}
+
+#joinTbl, #updateTbl {
+	margin-top: 45px;
+	width: 70%;
+	height: 600px;
+	font-size: 20px;
+	border-spacing: none;
+}
+
+#joinTitleTd, #updateTitleTd{
+	background-color: #EF5E5A;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	font-size: 35px;
+	font-family: 'Galmuri7';
+	color: #FFE164;
+}
+
+#joinSubmitTd, #updateSubmitTd{
+	width: 90%;
+	height: 60px;
+	background-color: #EF5E5A;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#joinSubmitTd button, #updateSubmitTd button{
+	background-color: #EF5E5A;
+	border: none;
+	font-family: 'Galmuri7';
+	font-weight: 5pt;
+	font-size: 30px;
+	color: #FFE164;
+}
+
+
+#joinSubmitTd button:hover, #updateSubmitTd button:hover{
+	color: #FFE16480;
+	cursor: pointer;
+}
+
+#joinTbl input, #updateTbl input{
+	width: 95%;
+	outline-style: none;
+	border-radius: 4px;
+	border-color: #FAFAF5;
+}
+
+
+.joinInputInfoTd, .updateInputInfoTd{
+	height: 35px;
+	width: 90%;
+}
+
+
+#newPhoto {
+	width: 200px;
+}
+

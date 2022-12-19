@@ -1,0 +1,16 @@
+const sequenceNumber = document.getElementById("sequenceNumber").innerText;
+const getContentURL = "http://sdgn-djvemfu.tplinkdns.com:6776/board.get.content"
+
+let boardContent = null;
+	
+$.ajax({
+	type: "POST",
+	url: getContentURL,
+	data: {b_number: sequenceNumber},
+	success: (result) => {
+		$("#boardEditor").html(result["content"]);
+		boardContent = $("<div></div>").attr("id", "boardEditor").attr("contenteditable", "true").html(result["content"]);
+		console.log(boardContent);
+	}
+});
+

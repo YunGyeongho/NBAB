@@ -1,0 +1,74 @@
+package com.haheeho.adblock.board;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.haheeho.adblock.member.MemberDAO;
+
+@Controller
+public class BoardController {
+
+	@Autowired
+	private MemberDAO mDAO;
+	
+	@Autowired
+	private BoardDAO bDAO;
+	
+	@RequestMapping(value="/board.go", method = RequestMethod.GET)
+	public String board(HttpServletRequest req) {
+		mDAO.isLoggedIn(req);
+		bDAO.getBoards(req);
+		req.setAttribute("searchBar", "board/boardSearch.jsp");
+		req.setAttribute("contentPage", "board/board.jsp");
+		
+		return "index";
+	}
+	
+	@RequestMapping(value="/board.write.go", method = RequestMethod.GET)
+	public String boardPostGo(HttpServletRequest req) {
+		if(mDAO.isLoggedIn(req)) {
+			req.setAttribute("contentPage", "board/boardWrite.jsp");
+			req.setAttribute("searchBar", "board/boardSearch.jsp");
+		} else {
+			req.setAttribute("contentPage", "main/main.jsp");
+			req.setAttribute("searchBar", "main/search.jsp");
+			req.setAttribute("result", "로그인 후 이용 가능");
+		}
+		
+		return "index";
+	}
+	
+	@RequestMapping(value="/board.show.content", method=RequestMethod.GET)
+	public String showContent(HttpServletRequest req, BoardSequence bs) {
+		mDAO.isLoggedIn(req);
+		bDAO.getContent(req, bs);
+		req.setAttribute("searchBar", "board/boardSearch.jsp");
+		req.setAttribute("contentPage", "board/boardContent.jsp");
+		
+		return "index";
+	}
+	
+	@RequestMapping(value="/board.write.submit", method=RequestMethod.POST, produces="application/json; charset=utf-8")
+	public @ResponseBody BoardSequence responseSequence(Board b) {
+		
+		return bDAO.boardWrite(b);
+	}
+	
+	@RequestMapping(value="/board.modify.submit", method=RequestMethod.POST, produces="application/json; charset=utf-8")
+	public @ResponseBody BoardResponseResult modifyBoardSubmit(Board b) {
+		
+		return bDAO.modifyContent(b);
+	}
+	
+	@RequestMapping(value="/board.delete", method=RequestMethod.POST, produces="application/json; charset=utf-8")
+	public @ResponseBody BoardResponseResult deleteBoardContent(BoardSequence bs) {
+		
+		return bDAO.deleteContent(bs);
+	}
+	
+}

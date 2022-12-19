@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haheeho.adblock.board.BoardMapper">
+	<insert id="boardWrite" parameterType="com.haheeho.adblock.board.Board">
+		insert into adblock_board values(#{b_number}, #{b_m_id}, #{b_m_username}, #{b_title}, #{b_date})
+	</insert>
+</mapper>

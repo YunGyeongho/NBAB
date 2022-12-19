@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table id="contentTable">
+		<tr>
+			<td id="sequenceNumber" style="display: none;">${board.b_number }</td>
+		</tr>
+		<tr>
+			<td id="contentTitleTd" colspan="2" align="center">
+				${board.b_title }
+			</td>
+		</tr>
+		<tr>
+			<td id="contentUnTd" align="left">
+				작성자: ${board.b_m_username }
+			</td>
+			<td id="contentDateTd" align="right">
+				작성 날짜: <fmt:formatDate value="${board.b_date }" pattern="yyyy년  MM월  dd일"/>
+			</td>
+		</tr>
+		<tr>
+			<td id="contentTd" colspan="2" align="center">
+				<div id="boardEditor">
+				
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+<script type="text/javascript" src="resources/js/boardContent.js"></script>
+</html>

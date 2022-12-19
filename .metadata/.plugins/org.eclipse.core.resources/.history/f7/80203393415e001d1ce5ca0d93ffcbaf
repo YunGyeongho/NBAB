@@ -1,0 +1,24 @@
+const writeButton = document.getElementById('boardWriteButton');
+ 
+ 
+function submitBoard() {
+	const b_m_id = document.getElementById('m_id').value;
+	const b_m_username = document.getElementById('m_username').value;
+	const b_title = document.getElementById('b_title').value;
+	const b_content = document.getElementById("boardEditor");
+	$.ajax({
+			type: "POST",
+			url: "board.write.submit",
+			data: {b_m_id: b_m_id, b_m_username: b_m_username, b_title: b_title},
+			success: (result) => {
+				const b_number = result["b_number"];
+				console.log(b_number);
+			
+			}
+	});
+	
+	//location.href= "board.go";
+} 
+
+
+writeButton.addEventListener('click', () => {submitBoard()});

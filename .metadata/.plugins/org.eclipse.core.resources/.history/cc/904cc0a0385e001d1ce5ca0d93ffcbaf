@@ -1,0 +1,27 @@
+package com.haheeho.adblock.board;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.haheeho.adblock.member.Member;
+
+@Service
+public class BoardDAO {
+	
+	@Autowired
+	private SqlSession ss;
+	
+	public int boardWrite(Board b) {
+		
+		BoardSequence bs = null;
+		
+		if (ss.getMapper(BoardMapper.class).boardWrite(b) == 1) {
+			 bs = ss.getMapper(BoardMapper.class).getSequence(b);
+		}
+		
+		return bs.getB_number();
+	}
+}

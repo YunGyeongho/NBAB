@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+#boardSearchTab {
+	width: 50%;
+	height: 30px;
+}
+
+#boardMainTable{
+	width: 100%;
+	border-spacing: 0;
+}
+
+.boardArea {
+	border-left: 2px solid #757575;
+	border-right: 2px solid #757575;
+	box-shadow: 2px 2px 2px #BDBDBD;
+	width: 100%;
+}
+
+
+.boardUserName, .boardTitle, .boardDate{
+	height: 40px;
+}
+
+.boardUserName{
+	width: 25%;
+}
+
+.boardTitle{
+	width: 50%; 
+}
+
+.boardDate{
+	width: 25%;
+}
+
+#boardSearchResultDiv{
+	margin-right: 440px;
+	width: 400px;
+	height: 30px;
+	padding-top:10px;
+	border-top: 2px solid #757575;
+	border-left: 2px solid #757575;
+	border-right: 2px solid #757575;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	text-align: center;
+}
+
+#boardSearchResultDiv span{
+	color: red;
+}
+
+#boardSearchResultDiv a{
+	font-size: 15px;
+	background-color: #EF5E5A30;
+	border-radius: 5px;
+}
+
+#boardPageNum{
+	border-left: 2px solid #757575;
+	border-right: 2px solid #757575;
+	border-bottom: 2px solid #757575;
+	box-shadow: 2px 2px 2px #BDBDBD;
+	padding-right: 20px;
+}

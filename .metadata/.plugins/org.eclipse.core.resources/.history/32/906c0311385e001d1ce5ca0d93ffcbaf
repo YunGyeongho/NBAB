@@ -1,0 +1,22 @@
+package com.haheeho.adblock.board;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.haheeho.adblock.member.Member;
+
+@Service
+public class BoardDAO {
+	
+	@Autowired
+	private SqlSession ss;
+	
+	public int boardWrite(HttpServletRequest req, Board b) {
+		
+		
+		return 1;
+	}
+}

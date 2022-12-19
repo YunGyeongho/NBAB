@@ -1,0 +1,136 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Haheeho</title>
+<script type="text/javascript" src="resources/js/jQuery.js"></script>
+<script type="text/javascript" src="resources/js/validChecker.js"></script>
+<script type="text/javascript" src="resources/js/move.js"></script>
+<script type="text/javascript" src="resources/js/memberCheck.js"></script>
+<script type="text/javascript" src="resources/js/like.js"></script>
+<script type="text/javascript" src="resources/js/memo.js"></script>
+<script type="text/javascript" src="resources/js/userPage.js"></script>
+<script type="text/javascript">
+function showResult(result) {
+	alert(result);
+}
+</script>
+<link rel="stylesheet" href="resources/css/index.css">
+<link rel="stylesheet" href="resources/css/mainPost.css">
+<link rel="stylesheet" href="resources/css/search.css">
+<link rel="stylesheet" href="resources/css/member.css">
+<link rel="stylesheet" href="resources/css/boardWrite.css">
+<link rel="stylesheet" href="resources/css/userPage.css">
+</head>
+<c:choose>
+	<c:when test="${result !=null }">
+		<body onload="showResult('${result }');"> 
+	</c:when>
+	<c:otherwise>
+		<body>
+	</c:otherwise>
+</c:choose>
+	<div id="backgroundImgDiv">
+		<img id="backgroundImg" src="resources/img/ramen.gif">
+	</div>
+	<div id="backgroundImgDiv2">
+		<img id="backgroundImg2" src="resources/img/pizza.gif">
+	</div>
+	<div id="haheehoLogoDiv">
+		<img src="resources/img/haheehoLogo.png">
+	</div>
+	<table id="backgroundColor">
+		<tr>
+			<td id="bgcTop">
+			</td>
+		</tr>
+		<tr>
+			<td id="bgcBottom">
+			</td>
+		</tr>
+	</table>
+	<table class="mainPageTable" id="mainSearchArea">
+		<tr>
+			<td id="mainTitleTd" align="center">
+				<a href="index.do">HaHeeHo</a>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<jsp:include page="${searchBar }"></jsp:include>
+			</td>
+		</tr>
+	</table>
+	<table class="mainPageTable" id="mainTable">
+		<tr>
+			<td id="mainPostTd" align="center">
+				<div id="commentArea">
+					<table id="commentAreaTb" border="1">
+						<tr>
+							<td id="commentInputArea">
+								<textarea id="commentInput" maxlength="80"></textarea>
+								<div id="commentInputBtn">댓글 쓰기</div>
+							</td>
+						</tr>
+						<tr>
+							<td id="showCommentArea">
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div id="mainPostDiv">
+					<jsp:include page="${contentPage }"></jsp:include>
+				</div>
+			</td>
+			<td id="mainMemberTd" align="center" valign="top">
+				<table id="menuTable">
+					<tr>
+						<td align="center" id="homeTabTd">
+							<a href="index.do">Home</a>
+						</td>
+						<td align="center">
+							<a href="board.go?page=1">Board</a>
+						</td>
+					</tr>
+				</table>
+				<table id="loginPageTable">
+					<tr>
+						<td align="center">
+							<jsp:include page="${loginPage }"></jsp:include>
+						</td>
+					</tr>
+				</table>
+				<table id="mainUserPageTable">
+					<tr>
+						<td align="center" id="userTabTd">
+							<table id="userTabTable">
+								<tr>
+									<td align="center" colspan="2">
+										<span id="userPageLikeButton" onclick="userPageLike();">Like & Memo</span>
+									</td>
+									<td align="center" onclick="userPageBoard();">
+										Post
+									</td>
+									<td align="center">
+										<span id="userPageCommentButton" onclick="userPageComment()">Reply</span>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td id="mainUserPage" align="center">
+							<jsp:include page="${userPage }"></jsp:include>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<div id="loginID" style="position: fixed; left: -2000px;">${sessionScope.loginStatus.m_id }</div>
+</body>
+<script type="text/javascript" src="resources/js/mainPost.js"></script>
+</html>

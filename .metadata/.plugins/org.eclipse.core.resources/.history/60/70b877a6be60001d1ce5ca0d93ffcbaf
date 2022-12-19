@@ -1,0 +1,24 @@
+package com.haheeho.adblock.board;
+
+public class BSList {
+	
+	private int[] bsList;
+	
+	public BSList() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public BSList(int[] bsList) {
+		super();
+		this.bsList = bsList;
+	}
+
+	public int[] getBsList() {
+		return bsList;
+	}
+
+	public void setBsList(int[] bsList) {
+		this.bsList = bsList;
+	}
+	
+}

@@ -1,0 +1,37 @@
+const sequenceNumber = document.getElementById("sequenceNumber").innerText;
+const getContentURL = "http://sdgn-djvemfu.tplinkdns.com:6776/board.get.content"
+
+let boardContent = null;
+	
+$.ajax({
+	type: "POST",
+	url: getContentURL,
+	data: {b_number: sequenceNumber},
+	success: (result) => {
+		$("#contentDiv").html(result["content"]);
+		boardContent = $("<div></div>").html(result["content"]);
+	}
+});
+
+const modifyButton = document.getElementById("contentModifyButton");
+
+modifyButton.addEventListener('click', () => {activeModify()});
+
+function activeModify() {
+	$("#boardEditor").html(boardContent);
+	
+	document.getElementById("contentTable").style.display = "none";
+	document.getElementById("editor-menu").style = "";
+	document.getElementById("titleDiv").style = "";
+	document.getElementById("boardEditor").style = "";
+	document.getElementById("boardSubmitDiv").style = "";
+	
+	const head = document.getElementsByTagName('head')[0];
+	console.log(head);
+	const modifyScript = document.creatElement('script');
+	modifyScript.type = "text/javascript";
+	modifyScript.src = "resources/js/boardWrite.js";
+	head.appendChild(modifyScript);
+}
+
+

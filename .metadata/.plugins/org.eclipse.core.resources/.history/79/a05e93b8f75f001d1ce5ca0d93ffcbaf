@@ -1,0 +1,64 @@
+function emptyChk(input){
+	return !input.value;
+}
+
+function lengthMinChk(input, len){
+	return input.value.length < len;
+}
+
+function kOrSChk(input){
+	var noKS ="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+	for (var i = 0; i < input.value.length; i++) {
+		if (noKS.indexOf(input.value[i]) == -1) {
+				return true;
+		}
+	}
+	return false;
+}
+
+function engOnly(input) {
+	var noKorean = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+	for (var i = 0; i < input.value.length; i++) {
+		if (noKorean.indexOf(input.value[i]) == -1) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function typoChk(input){
+	var typo ="ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎㅣㅔㅐㅏㅜㅗㅓㅡㅟㅚㅑㅕㅛㅠㅒㅖㅘㅝㅙㅞㅢㄳㅄㅀㄶㄻㄾㄼㄺㄽㄿㄵ{}[]:\"!@#$%^&*()/'<>./,\_+=|\\\;?/";
+	for (var i = 0; i < input.value.length; i++) {
+		if (typo.indexOf(input.value[i]) == -1) {
+				return true;
+		}
+	}
+	return false;
+}
+
+function pwChk(input, inputChk){
+	return input.value != inputChk.value;
+}
+
+function containsChk(input, set){
+	for (var i = 0; i < set.length; i++) {
+		if (input.value.indexOf(set[i]) != -1) {
+				return false;
+		}
+	}
+	return true;
+}
+
+function notOnlyNum(input){
+	return isNaN(input.value);
+}
+
+function minus(input){
+	return input.value < 0;
+}
+
+function isNotFileType(input, type){
+	type = "." + type;
+	var fName = input.value.toLowerCase();
+	return fName.indexOf(type) == -1;
+}
